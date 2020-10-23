@@ -1,0 +1,257 @@
+# docker-compose.yml
+version: '3'
+services:
+#    db:
+#        build: ./database
+#        image: google_business_cards_db:latest
+#        container_name: google_business_cards_db
+#        restart: always
+#        volumes:
+#            - postgres_data:/var/lib/postgresql/data/
+#        environment:
+#            - POSTGRES_USER=postgres
+#            - POSTGRES_PASSWORD=postgres
+
+    scraper_1:
+        build: .
+        container_name: google_business_cards_scraper_1
+        command: python /google_business_cards/google_places_scrape.py
+        restart: always
+        environment:
+            - input_file=industry5_1.csv
+            - id=1
+        volumes:
+            - .:/google_business_cards
+
+    scraper_2:
+        build: .
+        container_name: google_business_cards_scraper_2
+        command: python /google_business_cards/google_places_scrape.py
+        restart: always
+        environment:
+            - input_file=industry5_2.csv
+            - id=2
+        volumes:
+            - .:/google_business_cards
+
+#    scraper_3:
+#        build: .
+#        container_name: google_business_cards_scraper_3
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry1_1.csv
+#            - id=3
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_4:
+#        build: .
+#        container_name: google_business_cards_scraper_4
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry1_2.csv
+#            - id=4
+#        volumes:
+#            - .:/google_business_cards
+
+#    scraper_5:
+#        build: .
+#        image: google_business_cards_scraper_5:latest
+#        container_name: google_business_cards_scraper_5
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry1_3.csv
+#            - id=5
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_6:
+#        build: .
+#        image: google_business_cards_scraper_6:latest
+#        container_name: google_business_cards_scraper_6
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry1_4.csv
+#            - id=6
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#
+#    scraper_7:
+#        build: .
+#        image: google_business_cards_scraper_7:latest
+#        container_name: google_business_cards_scraper_7
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry2_1.csv
+#            - id=7
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_8:
+#        build: .
+#        image: google_business_cards_scraper_8:latest
+#        container_name: google_business_cards_scraper_8
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry2_2.csv
+#            - id=8
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_9:
+#        build: .
+#        image: google_business_cards_scraper_9:latest
+#        container_name: google_business_cards_scraper_9
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry2_3.csv
+#            - id=9
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_10:
+#        build: .
+#        image: google_business_cards_scraper_10:latest
+#        container_name: google_business_cards_scraper_10
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry2_4.csv
+#            - id=10
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_11:
+#        build: .
+#        image: google_business_cards_scraper_11:latest
+#        container_name: google_business_cards_scraper_11
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry3_1.csv
+#            - id=11
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_12:
+#        build: .
+#        image: google_business_cards_scraper_12:latest
+#        container_name: google_business_cards_scraper_12
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry3_2.csv
+#            - id=12
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_13:
+#        build: .
+#        image: google_business_cards_scraper_13:latest
+#        container_name: google_business_cards_scraper_13
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry3_3.csv
+#            - id=13
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_14:
+#        build: .
+#        image: google_business_cards_scraper_14:latest
+#        container_name: google_business_cards_scraper_14
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry3_4.csv
+#            - id=14
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_15:
+#        build: .
+#        image: google_business_cards_scraper_15:latest
+#        container_name: google_business_cards_scraper_15
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry4_1.csv
+#            - id=15
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_16:
+#        build: .
+#        image: google_business_cards_scraper_16:latest
+#        container_name: google_business_cards_scraper_16
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry4_2.csv
+#            - id=16
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_17:
+#        build: .
+#        image: google_business_cards_scraper_17:latest
+#        container_name: google_business_cards_scraper_17
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry4_3.csv
+#            - id=17
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+#
+#    scraper_18:
+#        build: .
+#        image: google_business_cards_scraper_18:latest
+#        container_name: google_business_cards_scraper_18
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry4_4.csv
+#            - id=18
+#        depends_on:
+#            - db
+#        volumes:
+#            - .:/google_business_cards
+
+volumes:
+  postgres_data:
