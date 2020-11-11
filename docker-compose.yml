@@ -12,27 +12,27 @@ services:
 #            - POSTGRES_USER=postgres
 #            - POSTGRES_PASSWORD=postgres
 
-    scraper_1:
-        build: .
-        container_name: google_business_cards_scraper_1
-        command: python /google_business_cards/google_places_scrape.py
-        restart: always
-        environment:
-            - input_file=industry5_1.csv
-            - id=1
-        volumes:
-            - .:/google_business_cards
+#    scraper_1:
+#        build: .
+#        container_name: google_business_cards_scraper_1
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry5_1.csv
+#            - id=1
+#        volumes:
+#            - .:/google_business_cards
 
-    scraper_2:
-        build: .
-        container_name: google_business_cards_scraper_2
-        command: python /google_business_cards/google_places_scrape.py
-        restart: always
-        environment:
-            - input_file=industry5_2.csv
-            - id=2
-        volumes:
-            - .:/google_business_cards
+#    scraper_2:
+#        build: .
+#        container_name: google_business_cards_scraper_2
+#        command: python /google_business_cards/google_places_scrape.py
+#        restart: always
+#        environment:
+#            - input_file=industry5_2.csv
+#            - id=2
+#        volumes:
+#            - .:/google_business_cards
 
 #    scraper_3:
 #        build: .
@@ -44,31 +44,30 @@ services:
 #            - id=3
 #        volumes:
 #            - .:/google_business_cards
-#
-#    scraper_4:
-#        build: .
-#        container_name: google_business_cards_scraper_4
-#        command: python /google_business_cards/google_places_scrape.py
-#        restart: always
-#        environment:
-#            - input_file=industry1_2.csv
-#            - id=4
-#        volumes:
-#            - .:/google_business_cards
 
-#    scraper_5:
-#        build: .
-#        image: google_business_cards_scraper_5:latest
-#        container_name: google_business_cards_scraper_5
-#        command: python /google_business_cards/google_places_scrape.py
-#        restart: always
-#        environment:
-#            - input_file=industry1_3.csv
-#            - id=5
-#        depends_on:
-#            - db
-#        volumes:
-#            - .:/google_business_cards
+    scraper_4:
+        build: .
+        container_name: google_business_cards_scraper_4
+        command: python /google_business_cards/google_places_scrape.py
+        restart: always
+        environment:
+            - input_file=industry1_2.csv
+            - id=4
+            - proxy_enabled=True
+        volumes:
+            - .:/google_business_cards
+
+    scraper_5:
+        build: .
+        container_name: google_business_cards_scraper_5
+        command: python /google_business_cards/google_places_scrape.py
+        restart: always
+        environment:
+            - input_file=industry1_3.csv
+            - id=5
+            - proxy_enabled=False
+        volumes:
+            - .:/google_business_cards
 #
 #    scraper_6:
 #        build: .
@@ -79,8 +78,6 @@ services:
 #        environment:
 #            - input_file=industry1_4.csv
 #            - id=6
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -94,8 +91,6 @@ services:
 #        environment:
 #            - input_file=industry2_1.csv
 #            - id=7
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -108,8 +103,6 @@ services:
 #        environment:
 #            - input_file=industry2_2.csv
 #            - id=8
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -122,8 +115,6 @@ services:
 #        environment:
 #            - input_file=industry2_3.csv
 #            - id=9
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -136,8 +127,6 @@ services:
 #        environment:
 #            - input_file=industry2_4.csv
 #            - id=10
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -150,8 +139,6 @@ services:
 #        environment:
 #            - input_file=industry3_1.csv
 #            - id=11
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -164,8 +151,6 @@ services:
 #        environment:
 #            - input_file=industry3_2.csv
 #            - id=12
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -178,8 +163,6 @@ services:
 #        environment:
 #            - input_file=industry3_3.csv
 #            - id=13
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -192,8 +175,6 @@ services:
 #        environment:
 #            - input_file=industry3_4.csv
 #            - id=14
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -206,8 +187,6 @@ services:
 #        environment:
 #            - input_file=industry4_1.csv
 #            - id=15
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -220,8 +199,6 @@ services:
 #        environment:
 #            - input_file=industry4_2.csv
 #            - id=16
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -234,8 +211,6 @@ services:
 #        environment:
 #            - input_file=industry4_3.csv
 #            - id=17
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 #
@@ -248,8 +223,6 @@ services:
 #        environment:
 #            - input_file=industry4_4.csv
 #            - id=18
-#        depends_on:
-#            - db
 #        volumes:
 #            - .:/google_business_cards
 
